@@ -7,6 +7,12 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
+	<gap:plugin name="com.phonegap.plugins.facebookconnect" spec="0.4.0">
+        <param name="APP_ID" value="1776350525926519" />
+        <param name="APP_NAME" value="eluvy" />
+         </gap:plugin>
+	
+	
     <content src="index.html" />
     <access origin="*" />
 </widget>
