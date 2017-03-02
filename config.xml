@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+    <widget xmlns:gap="http://phonegap.com/ns/1.0" 
+    xmlns="http://www.w3.org/ns/widgets" 
+    id="com.fbconectlogin.com" 
+    version="2.0.0">
+
+        <name>fbconectlogin</name>
+        <description>
+          fbconectlogin
+        </description>
+        <author email="rvgupta444@gmail.com"
+        href="http://cordova.io">
+         fbconectlogin
+        </author>
+    
+    	<plugin name="org.apache.cordova.console" spec="0.2.11"/>
+    	<plugin name="org.apache.cordova.device" spec="0.2.3" />
+    	
+    	
+		 <plugin name="org.apache.cordova.inappbrowser" spec="0.5.2"  />
+		
+    	<plugin name="org.apache.cordova.splashscreen" spec="0.2.7"  />
+    	
+        
+		 <plugin name="com.telerik.plugins.nativepagetransitions" source="npm" />
+		
+  	<!--	<gap:plugin name="nl.x-services.plugins.googleplus" source="plugins.cordova.io"/> -->
+  		
+    	<!--Icons and Splash Screens Configuration for Mofluid Apps-->
+		
+		<!-- ===================== -->
+		<!-- Global Configuration  -->
+		<!-- ===================== -->
+		<!-- Icons -->
+		<icon src="resource/icon/96x96px_2.png" />
+		<!-- Splash Screens -->
+		<gap:splash src="resource/splash/480x800.png" />
+		
+		<!-- ====================== -->
+		<!-- iOS Configuration      -->
+		<!-- ====================== -->
+		<!-- Icons -->
+		
+		
+	
+	
+    
+	         <preference name="phonegap-version" value="3.7.0" /> 
+			  <preference name="SplashScreen" value="screen" />
+				<preference name="show-splash-screen-spinner" value="true"/>
+				  <preference name="auto-hide-splash-screen" value="true"/>
+				  <preference name="SplashScreenDelay" value="5000" />
+				  <preference name="disable-cursor" value="false"/>
+                  <preference name="android-minSdkVersion" value="14"/>
+                <preference name="orientation" value="portrait" />
+                <preference name="target-device" value="universal" />
+                <preference name="DisallowOverscroll" value="true" />
+          	<preference name="webviewbounce" value="false" />
+			
+     <plugin name="cordova-plugin-whitelist" version="1"/>
+        
+
+ <content src="index.html" />
+    	<access origin="*" />
+	</widget>

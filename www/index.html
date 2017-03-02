@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>StaticKing SMS Gateway</title>
+  
+     
+	 <script type="text/javascript" src="js/phonegap.facebook.inappbrowser.js"></script>
+	 
+	<script>
+	
+	  FacebookInAppBrowser.settings.appId = '123456789';
+		FacebookInAppBrowser.settings.redirectUrl = 'http://example.com';
+		FacebookInAppBrowser.settings.permissions = 'email';
+
+		// Optional
+		FacebookInAppBrowser.settings.timeoutDuration = 7500;
+
+		// Login(accessToken will be stored trough localStorage in 'accessToken');
+		FacebookInAppBrowser.login({
+			send: function() {
+				console.log('login opened');
+			},
+			success: function(access_token) {
+				console.log('done, access token: ' + access_token);
+			},
+			denied: function() {
+				console.log('user denied');
+			},
+			timeout: function(){
+				console.log('a timeout has occurred, probably a bad internet connection');
+			},
+			complete: function(access_token) {
+				console.log('window closed');
+				if(access_token) {
+					console.log(access_token);
+				} else {
+					console.log('no access token');
+				}
+			},
+			userInfo: function(userInfo) {
+				if(userInfo) {
+					console.log(JSON.stringify(userInfo));
+				} else {
+					console.log('no user info');
+				}
+			}
+		});
+
+		// Invite friends
+		FacebookInAppBrowser.invite('Get to know my app!', function(response) {
+			if(response) {
+				alert('success');
+			}
+		});
+
+		// Same logic of callbacks
+		FacebookInAppBrowser.getInfo(function(response) {
+			if(response) {
+				var name = response.name,
+					id = response.id,
+					gender = response.gender;
+
+				// check the response object to see all available data like email, first name, last name, etc
+				console.log(JSON.stringify(response));
+			}
+		});
+
+		FacebookInAppBrowser.getPermissions(function(permissions) {
+			if(permissions) {
+				console.log(permissions.publish_actions, permissions);
+			}
+		});
+
+		FacebookInAppBrowser.post({
+			name: 'My post',
+			link: 'http://frop.me',
+			message: 'Try this out',
+			picture: 'http://caiovaccaro.com.br/wp-content/uploads/2013/10/frop01.jpg',
+			description: 'Sent trough mobile app'}, function(response) {
+				if(response) {
+					console.log('post successful');
+				}
+			});
+
+		// Share urls
+		FacebookInAppBrowser.share({
+			href: 'https://developers.facebook.com/docs/'
+		}, function(response) {
+			if (response) {
+				alert('success');
+			}
+		});
+
+		// Share open graph actions
+		FacebookInAppBrowser.share({
+			action_type: 'og.likes',
+			action_properties: JSON.stringify({
+				object:'https://developers.facebook.com/docs/',
+			})
+		}, function(response) {
+			if (response) {
+				alert('success');
+			}
+		});
+		// please note that you could get errors like:
+		// "User is already associated to the object type, article, on a unique action..."
+		// if you try to re-like something already liked by the user
+
+		// Logout
+		FacebookInAppBrowser.logout(function() {
+			alert('bye');
+		});
+		If you are using jQuery or similar you can use it like:
+
+		// callbacks as before
+		$('#login').click(function() {
+			FacebookInAppBrowser.login(...);
+		});
+
+		$('#invite').click(function() {
+			FacebookInAppBrowser.invite(...);
+		}):
+
+		$('#bye').click(function() {
+			FacebookInAppBrowser.logout(...);
+		});
+	
+    </script>	
+</head>
+
+<body>
+
+<div class="page-container list-menu-view">
+
+   
+   <div id="fb-root"></div>
+
+    <div onclick="fbLogin();" style="margin-top: 25px; height: 100px; width: 100%; background-color: blue; color: white; font-size: 40px">Login with Facebook</div>
+    <div onclick="location = 'https://www.facebook.com' " style="margin-top: 25px; height: 100px; width: 100%; background-color: blue; color: white; font-size: 40px">Goto Facebook</div>
+
+    <div id="userData"></div>
+
+    <script type="text/javascript" charset="utf-8">
+
+
+        document.addEventListener("deviceready", function() {
+
+
+
+            function getJsonFromUrl(urlString) {
+              var parameterQuery = urlString.split("?");
+              var data = parameterQuery[1].split("&");
+              var result = {};
+              for(var i=0; i<data.length; i++) {
+                var item = data[i].split("=");
+                result[item[0]] = decodeURIComponent(item[1]);
+              }
+              return result;
+            }
+
+            fbLogin = function () {
+                var ref = window.open('https://www.facebook.com/dialog/oauth?scope=email&client_id=158516881328583&redirect_uri=http://manage.staticking.net/', '_blank', 'location=no');
+
+                 ref.addEventListener('loadstop', function(event) { 
+
+
+                    if(event.url.indexOf("http://manage.staticking.net/setVars.html") != -1) {
+
+                        ref.close();
+
+                        var fbDataArray = getJsonFromUrl(event.url);
+
+                        if (fbDataArray['email'].indexOf('@') != -1) {
+
+                            $('#userData').html('<img style="display:block; height: 150px; width: 150px; margin: 0px auto; margin-top: 50px;" src="https://graph.facebook.com/' + fbDataArray['id'] + '/picture?width=100&height=100" />');
+                            $('#userData').append('<div style="text-align:center; height: 50px; width: 300px; margin: 0px auto; font-size: 25px; margin-top: 25px;">' + fbDataArray['email'] + '</div>');
+                            $('#userData').append('<div style="text-align:center; height: 50px; width: 300px; margin: 0px auto; font-size: 25px; margin-top: 10px;">' + fbDataArray['name'] + '</div>');
+                            $('#userData').append('<div style="color: green; text-align:center; height: 50px; width: 300px; margin: 0px auto; font-size: 25px; margin-top: 10px;">ACCESS GRANTED!</div>');
+                        } else {
+                            $('#userData').html('<div style="color: red; text-align:center; height: 50px; width: 300px; margin: 0px auto; font-size: 25px; margin-top: 10px;">ACCESS DENIED!</div>');
+                        }
+                        //alert(fbDataArray['email'] + ' | ' + fbDataArray['name'] + ' | ' + fbDataArray['id']);
+
+                    }
+
+
+                 });
+                 ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
+
+            };
+
+
+
+
+               window.fbAsyncInit = function() {
+                FB.init({
+                  appId      : 158516881328583,
+                  status     : true,
+                  cookie     : true,
+                  xfbml      : true
+                });
+
+              };
+
+              (function(d, s, id){
+                 var js, fjs = d.getElementsByTagName(s)[0];
+                 if (d.getElementById(id)) {return;}
+                 js = d.createElement(s); js.id = id;
+                 js.src = "//connect.facebook.net/en_US/all.js";
+                 fjs.parentNode.insertBefore(js, fjs);
+               }(document, 'script', 'facebook-jssdk'));
+
+
+        });
+    </script>         
+
+</div>
+
+		
+   
+
+
+
+</body>
+
+
+
+</html>
+     
+
