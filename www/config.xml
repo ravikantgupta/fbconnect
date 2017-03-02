@@ -7,23 +7,18 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
-	<gap:plugin name="com.paypal.cordova.mobilesdk" />
-    	<gap:plugin name="org.apache.cordova.console" />
-    	<gap:plugin name="org.apache.cordova.device" />
-    	<gap:plugin name="org.apache.cordova.dialogs" />
-    	<gap:plugin name="org.apache.cordova.network-information" />
-    	<gap:plugin name="org.apache.cordova.inappbrowser" />
-    	<gap:plugin name="org.apache.cordova.splashscreen" />
-    	<gap:plugin name="com.phonegap.plugins.pushplugin" />
-    	<gap:plugin name="org.apache.cordova.statusbar" />
-        <gap:plugin name="com.millerjames01.sqlite-plugin" version="1.0.1" />
-        <gap:plugin name="com.danielcwilson.plugins.googleanalytics"/>
-    	<gap:plugin name="nl.x-services.plugins.socialsharing"/>
-    	<gap:plugin name="com.telerik.plugins.nativepagetransitions"/>
-		<gap:plugin name="com.phonegap.plugins.facebookconnect" spec="0.4.0">
+	  <plugin name="org.apache.cordova.console" spec="0.2.11"/>
+    	<plugin name="org.apache.cordova.device" spec="0.2.3" />
+    	
+    	
+		 <plugin name="org.apache.cordova.inappbrowser" spec="0.5.2"  />
+		
+    	<plugin name="org.apache.cordova.splashscreen" spec="0.2.7"  />
+		
+		<plugin name="com.phonegap.plugins.facebookconnect" spec="0.4.0">
         <param name="APP_ID" value="1776350525926519" />
         <param name="APP_NAME" value="eluvy" />
-         </gap:plugin>
+         </plugin>
 	
 	
 	
