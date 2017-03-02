@@ -15,11 +15,11 @@
 		
     	<plugin name="org.apache.cordova.splashscreen" spec="0.2.7"  />
 		
-		<plugin name="jfaris.com.phonegap.plugins.facebookconnect" version="0.11.0-jfaris.0" source="plugins.cordova.io">
-        <param name="APP_ID" value="1776350525926519" />
+		
+	<gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.10.1" source="plugins.cordova.io">
+         <param name="APP_ID" value="1776350525926519" />
         <param name="APP_NAME" value="eluvy" />
-         </plugin>
-	
+</gap:plugin>
 	
 	
     <content src="index.html" />
