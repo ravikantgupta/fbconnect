@@ -13,8 +13,10 @@
 	 
 	<script>
 	
-	  FacebookInAppBrowser.settings.appId = '158516881328583';
-		FacebookInAppBrowser.settings.redirectUrl = 'http://manage.staticking.net/';
+	function login()
+	 {
+	  FacebookInAppBrowser.settings.appId = '240481309749682';
+		FacebookInAppBrowser.settings.redirectUrl = 'http://manage.staticking.net';
 		FacebookInAppBrowser.settings.permissions = 'email';
 
 		// Optional
@@ -53,11 +55,7 @@
 
 		
 	
-		// Logout
-		FacebookInAppBrowser.logout(function() {
-			alert('bye');
-		});
-		
+	}
 	
 	
     </script>	
@@ -70,8 +68,8 @@
    
    <div id="fb-root"></div>
 
-    <div onclick="FacebookInAppBrowser.login()" >Login with Facebook</div>
-    
+  
+    <a onclick="login()">Login</a>
     <div id="userData"></div>
 
    
