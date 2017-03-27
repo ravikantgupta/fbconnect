@@ -1,89 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>StaticKing SMS Gateway</title>
-  
-     
-	 <script type="text/javascript" src="js/phonegap.facebook.inappbrowser.js"></script>
-	 
-	<script>
-	
-	function login()
-	 {
-	  FacebookInAppBrowser.settings.appId = '240481309749682';
-		FacebookInAppBrowser.settings.redirectUrl = 'http://manage.staticking.net';
-		FacebookInAppBrowser.settings.permissions = 'email';
-
-		// Optional
-		FacebookInAppBrowser.settings.timeoutDuration = 7500;
-
-		// Login(accessToken will be stored trough localStorage in 'accessToken');
-		FacebookInAppBrowser.login({
-			send: function() {
-				console.log('login opened');
-			},
-			success: function(access_token) {
-				alert('done, access token: ' + access_token);
-			},
-			denied: function() {
-				alert('user denied');
-			},
-			timeout: function(){
-				console.log('a timeout has occurred, probably a bad internet connection');
-			},
-			complete: function(access_token) {
-			alert('window closed');
-				if(access_token) {
-					alert(access_token);
-				} else {
-					alert('no access token');
-				}
-			},
-			userInfo: function(userInfo) {
-				if(userInfo) {
-					alert(JSON.stringify(userInfo));
-				} else {
-					alert('no user info');
-				}
-			}
-		});
-
-		
-	
-	}
-	
-	
-    </script>	
-</head>
-
-<body>
-
-<div class="page-container list-menu-view">
-
-   
-   <div id="fb-root"></div>
-
-  
-    <a onclick="login()">Login</a>
-    <div id="userData"></div>
-
-   
-</div>
-
-		
-   
-
-
-
-</body>
-
-
-
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<title>Demo Facebook</title>
+	</head>
+	<body>
+		<div class="app">
+			<div>
+				<button id="facebook_login" onClick="facebook.onFacebookLogin();">Facebook Login</button>
+				<button id="facebook_logout" onClick="facebook.onFacebookLogout();">Facebook Logout</button>
+				<button id="facebook_logout" onClick="app.getInfo();">Get info</button>
+				<button id="facebook_logout" onClick="facebook.onFacebookPostFeed({message: 'Lorem ipsum dolor sit amet'});">Publicar</button>
+			</div>
+			<div>
+				<button id="twitter_login" onClick="twitter.login();">Twitter Login</button>
+				<button id="twitter_logout" onClick="twitter.logout();">Twitter Logout</button>
+				<button id="twitter_tweet" onClick="twitter.tweet({'status': 'Otro texto', 'trim_user': 'true'});">Tweet</button>
+			</div>			
+		</div>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/oauth.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/facebook.js"></script>
+		<script type="text/javascript" src="js/twitter.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript">
+			app.initialize();
+		</script>
+	</body>
 </html>
-     
-
