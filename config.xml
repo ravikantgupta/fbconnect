@@ -24,7 +24,7 @@
         
 		 <plugin name="com.telerik.plugins.nativepagetransitions" source="npm" />
 		 
-		<plugin name="com.phonegap.plugins.pushplugin" spec="2.4.0" source="pgb" />
+		<plugin name="com.phonegap.plugins.pushplugin" spec="2.4.0" />
 		
   	<!--	<gap:plugin name="nl.x-services.plugins.googleplus" source="plugins.cordova.io"/> -->
   		
