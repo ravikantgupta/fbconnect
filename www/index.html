@@ -9,6 +9,12 @@
 		
 	</head>
 	<body>
+	<script>
+	document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+console.log(navigator.contacts);
+}
+	</script>
 		<div class="app">
 			<div>
 				<button id="facebook_login" onClick="facebook.onFacebookLogin();">Facebook Login</button>
