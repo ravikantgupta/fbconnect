@@ -23,6 +23,8 @@
     	
         
 		 <plugin name="com.telerik.plugins.nativepagetransitions" source="npm" />
+		 
+		 <plugin name="com.adobe.plugins.pushplugin" />
 		
   	<!--	<gap:plugin name="nl.x-services.plugins.googleplus" source="plugins.cordova.io"/> -->
   		
