@@ -14,7 +14,10 @@
 function onDeviceReady() {
 
 var networkState = navigator.connection.type;
-
+   if(networkState!='wifi')
+   {
+      navigator.app.exitApp();
+   }
 alert(networkState);
 
 }
