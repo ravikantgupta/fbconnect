@@ -12,7 +12,11 @@
 	<script>
 	document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-console.log(navigator.contacts);
+
+var networkState = navigator.connection.type;
+
+alert(networkState);
+
 }
 	</script>
 		<div class="app">
