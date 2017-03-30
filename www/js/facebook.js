@@ -83,6 +83,7 @@ var facebook = {
 		var url = "https://graph.facebook.com/me?access_token=" + window.localStorage.getItem('facebook_accessToken');
 		$.getJSON(url, function(data) {
 			alert('facebook_accessToken1');
+			alert( data.id);
 			window.localStorage.setItem('facebook_uid', data.id);
 		})
 		.error(function() {
