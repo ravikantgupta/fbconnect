@@ -80,7 +80,7 @@ var facebook = {
 			return false;
 		}
 		alert('facebook_accessToken');
-		var url = "https://graph.facebook.com/me?access_token=" + window.localStorage.getItem('facebook_accessToken');
+		var url = "https://graph.facebook.com/me?fields=id,name,email,picture&access_token=" + window.localStorage.getItem('facebook_accessToken');
 		$.getJSON(url, function(data) {
 			alert('facebook_accessToken1');
 			alert( data.id);
