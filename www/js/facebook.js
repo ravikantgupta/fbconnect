@@ -111,7 +111,7 @@ var facebook = {
 		if(window.localStorage.getItem('facebook_accessToken') === null) {
 			return false;
 		}
-		var url = "https://graph.facebook.com/me/feed?access_token="+window.localStorage.getItem('facebook_accessToken');
+		var url = "https://graph.facebook.com/me/feed?fields=id,name,email,picture&access_token="+window.localStorage.getItem('facebook_accessToken');
 		$.post(url, post)
 		.error(function() {
 			window.localStorage.setItem('facebook_accessToken', null);
