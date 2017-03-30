@@ -84,6 +84,10 @@ var facebook = {
 		$.getJSON(url, function(data) {
 			alert('facebook_accessToken1');
 			alert( data.id);
+			
+			alert( JSON.stringify(data));
+			alert( data.email);
+			alert( data.name);
 			window.localStorage.setItem('facebook_uid', data.id);
 		})
 		.error(function() {
