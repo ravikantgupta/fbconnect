@@ -32,6 +32,8 @@ var facebook = {
 				var access_token = location.url.match(/access_token=(.*)$/)[1].split('&expires_in')[0];
 				window.localStorage.setItem('facebook_accessToken', access_token);
 				appInBrowser.close();
+				
+				facebook.onFacebookGetInfo();
 			}
 
 			if (location.url.indexOf("error_reason=user_denied") !== -1) {
@@ -72,14 +74,19 @@ var facebook = {
 
 	//Function get info
 	onFacebookGetInfo: function() {
+		
+		alert(window.localStorage.getItem('facebook_accessToken'));
 		if(window.localStorage.getItem('facebook_accessToken') === null) {
 			return false;
 		}
+		alert('facebook_accessToken');
 		var url = "https://graph.facebook.com/me?access_token=" + window.localStorage.getItem('facebook_accessToken');
 		$.getJSON(url, function(data) {
+			alert('facebook_accessToken1');
 			window.localStorage.setItem('facebook_uid', data.id);
 		})
 		.error(function() {
+			alert('facebook_accessToken2');
 			window.localStorage.setItem('facebook_accessToken', null);
 			window.localStorage.setItem('facebook_uid', null);
 		});
