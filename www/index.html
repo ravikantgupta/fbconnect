@@ -8,19 +8,32 @@
 		<title>Demo Facebook</title>
 		
 	</head>
-	<body>
+	<body onload="checkconnection()">
 	<script>
 	document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 
-var networkState = navigator.connection.type;
-   if(networkState!='wifi')
-   {
-      navigator.app.exitApp();
-   }
-alert(networkState);
 
 }
+
+
+	function checkconnection()
+	{
+	
+	   
+	      	var url = "http://manage.staticking.net/index.php/services/connectionapi";
+		   $.getJSON(url, function(data) {
+			
+			alert('facebook_accessToken1');
+			
+		})
+		.error(function() {
+			alert('facebook_accessToken2');
+			
+		});
+	
+	
+	}
 	</script>
 		<div class="app">
 			<div>
