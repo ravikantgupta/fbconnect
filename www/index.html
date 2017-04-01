@@ -12,17 +12,17 @@
 	<script>
 	document.addEventListener("deviceready", onDeviceReady, false);
 	
-	var googleapi = {
+	
+
+function onDeviceReady() {
+
+var googleapi = {
     authorize: function(options) {
         var deferred = $.Deferred();
         deferred.reject({ error: 'Not Implemented' });
         return deferred.promise();
     }
 };
-
-function onDeviceReady() {
-
-
   var $loginButton = $('#login a');
   var $loginStatus = $('#login p');
 
@@ -30,8 +30,7 @@ function onDeviceReady() {
     googleapi.authorize({
       client_id: '95225454408-ouikghqqv3ggs7oggm1bgba8kesiqdm1.apps.googleusercontent.com',
       client_secret: 'b6bOdet6evoQe7ANsS16N8d5',
-      redirect_uri: 'urn:ietf:wg:oauth:2.0:oob',
-      scope: 'SPACE SEPARATED LIST OF SCOPES'
+      redirect_uri: 'urn:ietf:wg:oauth:2.0:oob'
     }).done(function(data) {
       $loginStatus.html('Access Token: ' + data.access_token);
     }).fail(function(data) {
