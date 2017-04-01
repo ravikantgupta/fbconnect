@@ -65,7 +65,7 @@
                 <preference name="target-device" value="universal" />
                 <preference name="DisallowOverscroll" value="true" />
           	<preference name="webviewbounce" value="false" />
-			
+			<preference name="android-build-tool" value="gradle" />
      <plugin name="cordova-plugin-whitelist" version="1"/>
         
 
