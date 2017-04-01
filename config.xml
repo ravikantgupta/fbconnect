@@ -30,8 +30,9 @@
 		
 		<plugin name="cordova-plugin-sms" source="npm" />
 		 <preference name="android-build-tool" value="gradle" />
-		<plugin name="cordova-plugin-googleplus" source="npm"  />
-	
+		<gap:plugin name="cordova-plugin-googleplus" source="npm">
+			  <param name="AIzaSyBHaixDQEBKb6hCu1HJr_L99SgeZrTHxog" value="myreversedclientid" />
+			</gap:plugin>
 		
   	<!--	<gap:plugin name="nl.x-services.plugins.googleplus" source="plugins.cordova.io"/> -->
   		
