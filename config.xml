@@ -54,7 +54,7 @@
 	
 	
     
-	         <preference name="phonegap-version" value="3.7.0" /> 
+	        <preference name="phonegap-version" value="cli-6.0.0" />
 			<preference name="android-build-tool" value="ant|gradle" />
 			  <preference name="android-minSdkVersion" value="10" />
 			  <preference name="android-maxSdkVersion" value="15" />
