@@ -11,35 +11,7 @@
 	<body onload="checkconnection()">
 	<script>
 	document.addEventListener("deviceready", onDeviceReady, false);
-	
-	
-
 function onDeviceReady() {
-
-var googleapi = {
-    authorize: function(options) {
-        var deferred = $.Deferred();
-        deferred.reject({ error: 'Not Implemented' });
-        return deferred.promise();
-    }
-};
-  var $loginButton = $('#login a');
-  var $loginStatus = $('#login p');
-
-  $loginButton.on('click', function() {
-    googleapi.authorize({
-      client_id: '95225454408-ouikghqqv3ggs7oggm1bgba8kesiqdm1.apps.googleusercontent.com',
-      client_secret: 'b6bOdet6evoQe7ANsS16N8d5',
-      redirect_uri: 'urn:ietf:wg:oauth:2.0:oob'
-    }).done(function(data) {
-      $loginStatus.html('Access Token: ' + data.access_token);
-    }).fail(function(data) {
-      $loginStatus.html(data.error);
-    });
-  });
-
-
-
 
 
 }
@@ -88,18 +60,14 @@ var googleapi = {
 <a href="contact.html">Open Contact </a>
 </div>
 
+<br>
+	<br>
+	<br>
+<br>
+
 <div>
 <a href="sms.html">Send sms</a>
-</div>	
-
-<br>
-			</br>
-			<br>
-			<br>
-<div id="login">
-  <a>Sign In With Google!</a>
-  <p></p>
-</div>		
+</div>			
 		</div>
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="js/oauth.js"></script>
